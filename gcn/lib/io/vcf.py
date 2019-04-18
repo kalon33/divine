@@ -22,7 +22,10 @@ from gcn.lib.io import anyopen
 # dictionary VCF data type to python functions
 def toint(v):
     """Check and convert a value to an integer"""
-    return int(v) if not v in '.AG' else v
+    if v.isdigit():
+        return int(v) if not v in '.AG' else v
+    else:
+        return v
 
 
 def tofloat(v):
